@@ -58,11 +58,11 @@ curl -H "Content-Type: application/json" \
 
 UNIX TIMESTAMP is, well you know... to get unix timestamp in roblox you can use the `os.time()` function and multiply it by 1000000000 to get the time in nanoseconds, since thats what grafana uses for timestamps
 the label and value, basically label is something like key and value is well... value! so for example we can have values,
-"Error-type": "Client"
-"Kill-count": "6969"
-"Death-count": "1859"
-"Team": "blue"
-It is not limited to that, labels can be anything also make sure to include the timestamp otherwise it wont work
+- "Error-type": "Client"
+- "Kill-count": "6969"
+- "Death-count": "1859"
+- "Team": "blue"
+- It is not limited to that, labels can be anything also make sure to include the timestamp otherwise it wont work
 
 in roblox if you have a part, click detector and script in it
 ```
