@@ -16,9 +16,9 @@ Now, i introduce you, Grafana (NOT developed by me), i would define it as open s
 - Debian/Ubuntu (doesn't need to be) with docker,git,docker-compose and npm installed, this would be the logging server
 - Optionally static ip, or domain so you can portforward
 #### In case you dont have these installed
-To install docker, git, docker-compose and npm run
-`sudo apt-get install docker.io`
-`sudo apt-get install git`
+To install docker, git, and docker-compose
+- `sudo apt-get install docker.io`
+- `sudo apt-get install git`
 
 ### What now?
 - Clone the git repository
