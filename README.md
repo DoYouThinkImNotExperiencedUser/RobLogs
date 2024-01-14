@@ -99,15 +99,3 @@ clickDetector.MouseClick:Connect(function(player)
 end)
 ```
 Didn't bother to try if it works but i guess debugging it wont be hard
-
-
-
-
-timestamp_ns=$((1705243455 * 1000000000))
-
-curl -H "Content-Type: application/json" \
-    -H "Authorization: token" \
-    -X POST \
-    --url http://192.168.1.13:8080/api/log \
-    --data-raw "{\"streams\": [{\"stream\": {\"label\": \"value\"}, \"values\": [[\"${timestamp_ns}\", \"Hello world\"]]}]}"
-
