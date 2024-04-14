@@ -18,5 +18,7 @@ services:
       - "3100:3100"
     volumes: 
       - loki-data:/loki
+    links:
+      - "proxy"
 volumes:
   loki-data:
