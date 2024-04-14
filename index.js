@@ -9,7 +9,7 @@ app.post('/api/log', async (req, res) => {
 	const authHeader = req.headers['authorization'];
 	if (authHeader === token) {
 		try {
-			const response = await axios.post('http://192.168.1.13:3100/loki/api/v1/push', req.body);
+			const response = await axios.post('http://loki:3100/loki/api/v1/push', req.body);
 			res.status(response.status).send(response.data);
 			console.log(response);
 		} catch (error) {

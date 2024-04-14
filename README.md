@@ -34,7 +34,9 @@ CTRL+S to save and CTRL+X to exit
 - In your web browser, type your server's local ip with port 3000 (http://[IP]:3000) (if you're on local network/vpn'd to the network of the remote machine)
 - It will ask you to log in, default login is admin:admin, then it will ask you for new password (make it something strong and secure!!)
 - Now you're logged in, great! Navigate to "Connections tab", type "Loki" in the search bar and click on it, and then click on "Add new data source"
-- Type in your servers local ip again but with port 3100
+- Type in `http://loki:3100`
+
+Remember, [public ip]:8080 is your "api" / improvised reverse proxy, it would be possible to use nginx as reverse proxy but im too lazy but you can, feel free to submit PR to improve this tutorial so more people do this and its easier. Since why should we be flooding other servers with our logs? Just setup your own logging system, i know it costs money and time but its worth it.
 
 Great! That concludes setting up the infrastructure, now, it is safe to portforward ports 3000 if you have strong password, and 8080 which is for the api.
 
