@@ -114,3 +114,4 @@ Didn't bother to try if it works but i guess debugging it wont be hard
  - https://stackoverflow.com/questions/74315574/how-to-configure-nginx-reverse-proxy-for-authentication
  - https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
  - useful for newbies to docker: https://docs.docker.com/get-started/docker_cheatsheet.pdf
+ - If you're too lazy then umm: https://chat.openai.com/ phind is also good https://www.phind.com
