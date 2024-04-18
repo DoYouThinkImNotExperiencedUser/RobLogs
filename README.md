@@ -25,8 +25,8 @@ To install docker, git, and docker-compose
 `git clone https://github.com/DoYouThinkImNotExperiencedUser/RobLogs`
 - then navigate to the folder
 `cd [Directory]` 
-- open index.js and change token variable to something more secure (very important!!!)
-`nano index.js`
+- open `nginx_conf/nginx.conf` and edit the token marked as `YOUR_AUTH_TOKEN`
+`nano nginx_conf/nginx.conf`
 CTRL+S to save and CTRL+X to exit
 - Run the docker compose command
 `docker compose up -d`
@@ -36,8 +36,6 @@ CTRL+S to save and CTRL+X to exit
 - Now you're logged in, great! Navigate to "Connections tab", type "Loki" in the search bar and click on it, and then click on "Add new data source"
 - Type in `http://loki:3100`
 
-Remember, [public ip]:8080 is your "api" / improvised reverse proxy, it would be possible to use nginx as reverse proxy but im too lazy but you can, feel free to submit PR to improve this tutorial so more people do this and its easier. Since why should we be flooding other servers with our logs? Just setup your own logging system, i know it costs money and time but its worth it.
-
 Great! That concludes setting up the infrastructure, now, it is safe to portforward ports 3000 if you have strong password, and 8080 which is for the api.
 
 ### Viewing logs
@@ -46,15 +44,18 @@ also you can view the logs view, you can play around with this yourself.
 
 But since there were no logs added yet, we need a way to submit them, this is where the api comes in.
 ### Logs api
-The Node.js api we setup is only for authentication, because apparently loki by default doesnt come with authentication and we need to manage that ourselves (atleast thats what i understood) to submit a log, the api format is like this
+The Nginx proxy is for authentication, because if you would expose the loki server directly anyone would be able to send logs and stuff, its also just not safe, the server is on port 8080 by default, if you want to change it, do it in the docker-compose.yml and nginx.conf example of sending logs below
 
 ```
-timestamp_ns=$(([UNIX TIMESTAMP] * 1000000000))
+timestamp_sec=$(date +%s)
+echo $timestamp_sec
+timestamp_ns=$((timestamp_sec * 1000000000))
+echo $timestamp_ns
 
-curl -H "Content-Type: application/json" \
-    -H "Authorization: token" \
+curl -v -H "Content-Type: application/json" \
+    -H "Authorization: Bearer YOUR_AUTH_TOKEN" \
     -X POST \
-    --url http://192.168.1.13:8080/api/log \
+    --url http://[YOUR_SERVER_IP]8080/loki/api/v1/push \
     --data-raw "{\"streams\": [{\"stream\": {\"label\": \"value\"}, \"values\": [[\"${timestamp_ns}\", \"Hello world\"]]}]}"
 ```
 
@@ -75,7 +76,7 @@ local function Log(timestamp_ns, message)
 	local timestamp_ns = os.time() * 1000000000
 	local url = "[PROXY IP (PORTFORWARDED) OR DOMAIN NAME]/api/log"
 	local headers = {
-		["Authorization"] = "token"
+		["Authorization"] = "Bearer YOUR_AUTH_TOKEN"
 	}
 	local body = HttpService:JSONEncode({
 		streams = {{
@@ -101,3 +102,5 @@ clickDetector.MouseClick:Connect(function(player)
 end)
 ```
 Didn't bother to try if it works but i guess debugging it wont be hard
+
+## Note: Remember to setup SSL for the Nginx proxy, preferably also for the grafana webserver, it will be more secure and safer, i'm not responsible for any damages caused this is just more like POC (Proof of Concept)
