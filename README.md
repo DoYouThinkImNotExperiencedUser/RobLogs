@@ -105,3 +105,12 @@ end)
 Didn't bother to try if it works but i guess debugging it wont be hard
 
 ## Note: Remember to setup SSL for the Nginx proxy, preferably also for the grafana webserver, it will be more secure and safer, i'm not responsible for any damages caused this is just more like POC (Proof of Concept)
+
+# Resources
+ - Loki api documentation: https://grafana.com/docs/loki/latest/reference/api/
+ - Grana: https://grafana.com/
+ - Nginx, really great for other things too: https://www.nginx.com/
+ - https://medium.com/pernod-ricard-tech/adding-basic-authentication-with-nginx-as-a-reverse-proxy-a229f9d12b73
+ - https://stackoverflow.com/questions/74315574/how-to-configure-nginx-reverse-proxy-for-authentication
+ - https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
+ - useful for newbies to docker: https://docs.docker.com/get-started/docker_cheatsheet.pdf
