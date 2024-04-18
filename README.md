@@ -72,16 +72,17 @@ in roblox if you have a part, click detector and script in it
 local clickDetector = script.Parent
 local HttpService = game:GetService("HttpService")
 
-local function Log(timestamp_ns, message)
+local function Log(message)
 	local timestamp_ns = os.time() * 1000000000
-	local url = "[PROXY IP (PORTFORWARDED) OR DOMAIN NAME]/api/log"
+	print (timestamp_ns)
+	local url = "[Ip/URL of the Nginx proxy default port is 8080]//loki/api/v1/push"
 	local headers = {
 		["Authorization"] = "Bearer YOUR_AUTH_TOKEN"
 	}
 	local body = HttpService:JSONEncode({
 		streams = {{
 			stream = { label = "value" },
-			values = { { timestamp_ns, message } }
+			values = { { tostring(timestamp_ns), message } }
 		}}
 	})
 
