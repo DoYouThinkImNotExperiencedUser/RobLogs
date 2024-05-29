@@ -13,7 +13,7 @@ Now, i introduce you, Grafana (NOT developed by me), i would define it as open s
 # The tutorial
 
 ### What do you need?
-- Debian/Ubuntu (doesn't need to be) with docker,git,docker-compose and npm installed, this would be the logging server
+- Debian/Ubuntu (doesn't need to be) with docker,git,docker-compose
 - Optionally static ip, or domain so you can portforward
 #### In case you dont have these installed
 To install docker, git, and docker-compose
@@ -32,7 +32,7 @@ CTRL+S to save and CTRL+X to exit
 `docker compose up -d`
 - Wait for the services to boot up (if doesnt work run it with sudo, the status can be checked with `docker ps`
 - In your web browser, type your server's local ip with port 3000 (http://[IP]:3000) (if you're on local network/vpn'd to the network of the remote machine)
-- It will ask you to log in, default login is admin:admin, then it will ask you for new password (make it something strong and secure!!)
+- It will ask you to log in, default login is `admin:admin`, then it will ask you for new password (make it something strong and secure!!)
 - Now you're logged in, great! Navigate to "Connections tab", type "Loki" in the search bar and click on it, and then click on "Add new data source"
 - Type in `http://loki:3100`
 
