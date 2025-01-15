@@ -3,7 +3,7 @@ Hello!
 In this repo: 
 - I will rant about a **problem**,
 - Provide potential **solution**
-- \+ A litle **tutorial** on how to implement it/setup
+- \+ A little **tutorial** on how to implement it/setup
 
 ## The problem
 **Logging**, most devs are familiar with this in some way or another, and i've noticed, alot of Roblox groups/games or whatver, use Discord's webhooks to log.
@@ -64,7 +64,7 @@ curl -v -H "Content-Type: application/json" \
     --data-raw "{\"streams\": [{\"stream\": {\"label\": \"value\"}, \"values\": [[\"${timestamp_ns}\", \"Hello world\"]]}]}"
 ```
 
-UNIX TIMESTAMP is the time [the number of non-leap seconds which have passed since 00:00:00 UTC on Thursday, 1 January 1970](https://en.wikipedia.org/wiki/Unix_time) to get unix timestamp in Roblox you can use the `os.time()` function and multiply it by 1000000000 to get the time in nanoseconds, since thats what grafana uses for timestamps
+UNIX TIMESTAMP is [the number of non-leap seconds which have passed since 00:00:00 UTC on Thursday, 1 January 1970](https://en.wikipedia.org/wiki/Unix_time) to get unix timestamp in Roblox you can use the `os.time()` function and multiply it by 1000000000 to get the time in nanoseconds, since thats what grafana uses for timestamps
 the label and value, basically label is something like key and value is well... value! so for example we can have values,
 - "Error-type": "Client"
 - "Kill-count": "6969"
