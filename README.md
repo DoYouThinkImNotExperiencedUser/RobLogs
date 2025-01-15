@@ -11,7 +11,7 @@ As a result of this, they need to create new comms channels specifically for log
 So developers needed to find workarounds, like proxies.
 
 ## The solution
-While this is litle bit harder to setup and requires more resources, it is worth it in the end. I don't expect everyone who reads this post to automatically do this, but atleast try it out and see if it would fit your standards.
+While this is little bit harder to setup and requires more resources, it is worth it in the end. I don't expect everyone who reads this post to automatically do this, but atleast try it out and see if it would fit your standards.
 Now, i introduce you, Grafana (**NOT** developed by me (*to not cause confusion)), i would define it as (*Didn't research that, purely made up definition.) open source "analytics" solution (capable of logging). 
 
 # The tutorial
@@ -31,7 +31,7 @@ To install docker, git and docker-compose
 - then navigate to the folder <br>
 `cd [Directory]` 
 - open `nginx_conf/nginx.conf` and edit the token marked as `YOUR_AUTH_TOKEN` <br>
-`nano nginx_conf/nginx.conf` (*or vi/m `vi[/m] [path]` if nano is not present on your system.)
+`nano nginx_conf/nginx.conf` (*or `vi[/m] [path]` if nano is not present on your system.)
 CTRL+S to save and CTRL+X to exit
 - Run the docker compose command <br>
 `docker compose up -d` (*Use `sudo` if needed or consider [setting up proper permissions for Docker.](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue))
@@ -64,7 +64,7 @@ curl -v -H "Content-Type: application/json" \
     --data-raw "{\"streams\": [{\"stream\": {\"label\": \"value\"}, \"values\": [[\"${timestamp_ns}\", \"Hello world\"]]}]}"
 ```
 
-UNIX TIMESTAMP is [the number of non-leap seconds which have passed since 00:00:00 UTC on Thursday, 1 January 1970](https://en.wikipedia.org/wiki/Unix_time) to get unix timestamp in Roblox you can use the `os.time()` function and multiply it by 1000000000 to get the time in nanoseconds, since thats what grafana uses for timestamps
+UNIX TIMESTAMP is [the number of non-leap seconds which have passed since 00:00:00 UTC on Thursday, 1 January 1970](https://en.wikipedia.org/wiki/Unix_time) to get unix timestamp in Roblox you can use the `os.time()` function and multiply it by 1000000000 to get the time in nanoseconds, since thats what Grafana uses for timestamps
 the label and value, basically label is something like key and value is well... value! so for example we can have values,
 - "Error-type": "Client"
 - "Kill-count": "6969"
